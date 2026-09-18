@@ -30,7 +30,9 @@
       "desktop/main.js",
       "desktop/icon.png",
       "package.json",
-      "LICENSE"
+      "LICENSE",
+      "guida.html",
+      "guida-img/**"
     ],
     "icon": "desktop/icon.png",
     "mac": {

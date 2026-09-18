@@ -11,6 +11,8 @@ Sviluppato da **[luzadev](https://github.com/luzadev)**.
 
 🎬 **Video di presentazione:** [guarda il Reel](docs/playpiano-reel.mp4) (27 secondi, formato verticale).
 
+📖 **Guida all'uso:** [melody.djluza.com/guida.html](https://melody.djluza.com/guida.html), disponibile anche dentro l'app con il link «Guida».
+
 ## Cosa fa
 
 - **Pianoforte a coda campionato** su tutti gli 88 tasti, da La0 a Do8, con registrazioni di uno Yamaha C5. Sono disponibili anche piano elettrico, organo, synth e archi.
@@ -80,6 +82,7 @@ Tutta l'app è nel file `index.html`, senza dipendenze né passaggi di compilazi
 | Percorso | Contenuto |
 |---|---|
 | `index.html` | l'intera applicazione web |
+| `guida.html`, `guida-img/` | guida all'uso con le sue immagini |
 | `samples/` | campioni del pianoforte, un mp3 ogni terza minore |
 | `esempi/` | brani di prova in formato MIDI, MusicXML e MXL |
 | `desktop/` | contenitore Electron e icona |
@@ -106,7 +109,7 @@ dalla pagina Actions, oppure pubblicando un tag di versione, che crea anche una 
 ### Pubblicazione del sito
 Il sito è composto da soli file statici:
 
-    rsync -az index.html samples esempi utente@server:public_html/
+    rsync -az index.html guida.html guida-img samples esempi utente@server:public_html/
 
 ## Limiti noti
 

@@ -6,7 +6,7 @@ const http = require('http'), fs = require('fs'), path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.mp3': 'audio/mpeg', '.mid': 'audio/midi', '.musicxml': 'application/xml', '.mxl': 'application/zip', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8', '.json': 'application/json' };
-const ALLOWED = ['index.html', 'samples', 'esempi'];
+const ALLOWED = ['index.html', 'guida.html', 'guida-img', 'samples', 'esempi'];
 
 function startServer() {
   return new Promise((resolve, reject) => {
@@ -33,7 +33,9 @@ async function createWindow() {
     icon: path.join(__dirname, 'icon.png'),
     webPreferences: { contextIsolation: true, nodeIntegration: false, sandbox: true, backgroundThrottling: false }
   });
-  win.webContents.setWindowOpenHandler(({ url }) => { if (/^https?:/.test(url)) shell.openExternal(url); return { action: 'deny' }; });
+  win.webContents.setWindowOpenHandler(({ url }) => { // la guida si apre in una finestra dell'app, i link esterni nel browser
+    if (url.startsWith('http://localhost:' + port + '/')) return { action: 'allow', overrideBrowserWindowOptions: { width: 1180, height: 900, backgroundColor: '#14110f', autoHideMenuBar: true, title: 'PlayPiano · Guida' } };
+    if (/^https?:/.test(url)) shell.openExternal(url); return { action: 'deny' }; });
   win.on('closed', () => { win = null; });
   await win.loadURL('http://localhost:' + port + '/');
 }

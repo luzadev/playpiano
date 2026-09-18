@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida · PlayPiano</title>
+<style>
+  :root { --bg: #14110f; --panel: #1f1a17; --panel2: #2a231f; --text: #efe6da; --muted: #a39788; --accent: #e0a458; --line: #3a312b; --teal: #3fa695; --violet: #b388ff; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 50% -10%, #2b221c 0%, var(--bg) 60%) fixed; color: var(--text); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; display: grid; grid-template-columns: 250px 1fr; gap: 40px; }
+  header.top { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+  header.top h1 { margin: 0; font: 600 32px/1.1 Georgia, serif; } header.top h1 span { color: var(--accent); } header.top h1 small { font: 400 18px -apple-system, sans-serif; color: var(--muted); margin-left: 10px; }
+  a { color: var(--accent); } a.btn { display: inline-block; text-decoration: none; color: #1b140d; background: var(--accent); font-weight: 600; padding: 9px 18px; border-radius: 9px; }
+  nav { position: sticky; top: 20px; align-self: start; max-height: calc(100vh - 40px); overflow: auto; font-size: 14.5px; }
+  nav b { display: block; color: var(--muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  nav a { display: block; color: var(--text); text-decoration: none; padding: 6px 10px; border-left: 2px solid var(--line); }
+  nav a:hover { border-color: var(--accent); color: var(--accent); background: var(--panel); }
+  main { min-width: 0; }
+  section { margin-bottom: 46px; }
+  h2 { font: 600 26px/1.2 Georgia, serif; margin: 0 0 12px; padding-top: 6px; } h2 .n { color: var(--accent); margin-right: 8px; }
+  h3 { font-size: 17px; margin: 24px 0 8px; color: var(--accent); }
+  p { margin: 0 0 12px; } ul, ol { margin: 0 0 14px; padding-left: 22px; } li { margin-bottom: 6px; }
+  kbd { background: var(--panel2); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 7px; font: 13px ui-monospace, Menlo, monospace; white-space: nowrap; }
+  code { background: var(--panel2); border-radius: 5px; padding: 2px 6px; font: 13.5px ui-monospace, Menlo, monospace; }
+  pre { background: #0e0c0b; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; overflow-x: auto; margin: 0 0 14px; } pre code { background: none; padding: 0; }
+  .ui { background: var(--panel2); border: 1px solid var(--line); border-radius: 7px; padding: 1px 8px; font-size: 14px; white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 15px; } th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; } th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .8px; }
+  .tablewrap { overflow-x: auto; }
+  figure { margin: 18px 0 20px; } figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; } figcaption { color: var(--muted); font-size: 13.5px; margin-top: 8px; text-align: center; }
+  .note { border-left: 3px solid var(--accent); background: var(--panel); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 0 0 16px; } .note.teal { border-color: var(--teal); } .note.violet { border-color: var(--violet); }
+  .dot { display: inline-block; width: 11px; height: 11px; border-radius: 3px; vertical-align: middle; margin-right: 5px; }
+  footer { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 14px; text-align: center; }
+  @media (max-width: 860px) { .wrap { grid-template-columns: 1fr; gap: 22px; } nav { position: static; max-height: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; } nav b { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Play<span>Piano</span><small>Guida all'uso</small></h1>
+    <a class="btn" href="index.html">← Torna al pianoforte</a>
+  </header>
+
+  <nav>
+    <b>Contenuti</b>
+    <a href="#inizio">1. Per iniziare</a>
+    <a href="#suonare">2. Suonare</a>
+    <a href="#spartiti">3. Caricare uno spartito</a>
+    <a href="#apprendimento">4. Modalità Apprendimento</a>
+    <a href="#compositore">5. Compositore di idee</a>
+    <a href="#accordi">6. Generatore di accordi</a>
+    <a href="#ia">7. Idee con IA locale</a>
+    <a href="#registrare">8. Registrare ed esportare</a>
+    <a href="#desktop">9. App desktop</a>
+    <a href="#scorciatoie">10. Scorciatoie da tastiera</a>
+    <a href="#problemi">11. Se qualcosa non va</a>
+  </nav>
+
+  <main>
+    <section id="inizio">
+      <h2><span class="n">1</span>Per iniziare</h2>
+      <p>PlayPiano è un pianoforte a 88 tasti che funziona nel browser e come app per computer. Non richiede registrazione e non invia nulla in rete: tutto avviene sul tuo dispositivo.</p>
+      <ol>
+        <li>Apri l'app e premi un tasto qualsiasi del pianoforte. Al primo tocco si caricano i suoni del pianoforte a coda: in alto a destra compare <span class="ui">Pianoforte a coda pronto</span>.</li>
+        <li>Premi <span class="ui">♪ Demo</span> per vedere subito pentagramma, note che cadono e tasti che si illuminano.</li>
+        <li>Quando vuoi studiare un brano, passa alla <a href="#apprendimento">modalità Apprendimento</a>.</li>
+      </ol>
+      <div class="note">L'app è divisa in fasce, dall'alto: i comandi dello strumento, la barra dello spartito, il compositore, il generatore di accordi, le idee con IA. Sotto compaiono il pentagramma, la cascata di note e la tastiera.</div>
+    </section>
+
+    <section id="suonare">
+      <h2><span class="n">2</span>Suonare</h2>
+      <h3>Quattro modi di suonare</h3>
+      <ul>
+        <li><b>Mouse</b>: fai clic sui tasti. Trascinando il puntatore ottieni un glissando.</li>
+        <li><b>Touch</b>: puoi usare più dita insieme, per suonare accordi.</li>
+        <li><b>Tastiera del computer</b>: due file di tasti coprono due ottave e mezza. Le lettere sono scritte sui tasti del pianoforte.</li>
+        <li><b>Tastiera MIDI</b>: collegala prima di aprire l'app. Viene riconosciuta da sola, compreso il pedale. Serve Chrome, Edge o l'app desktop.</li>
+      </ul>
+      <h3>Dinamica</h3>
+      <p>Con mouse e touch, più in basso premi sul tasto e più forte suona la nota. Con la tastiera del computer, tieni premuto <kbd>Maiusc</kbd> per suonare forte. Suonando piano il timbro diventa anche più scuro, come su uno strumento vero.</p>
+      <h3>I comandi dello strumento</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Comando</th><th>A cosa serve</th></tr>
+        <tr><td><span class="ui">Strumento</span></td><td>Pianoforte a coda, piano sintetico, piano elettrico, organo, synth, archi.</td></tr>
+        <tr><td><span class="ui">Ottava</span></td><td>Sposta le note assegnate alla tastiera del computer. Vale anche con <kbd>←</kbd> e <kbd>→</kbd>. Così raggiungi tutti gli 88 tasti.</td></tr>
+        <tr><td><span class="ui">Volume</span> e <span class="ui">Riverbero</span></td><td>Livello generale e ambiente della sala.</td></tr>
+        <tr><td><span class="ui">Etichette</span></td><td>Cosa scrivere sui tasti: lettere del computer, Do Re Mi, C D E oppure niente. La scelta vale anche per i nomi sul pentagramma.</td></tr>
+        <tr><td><span class="ui">Sustain</span></td><td>Il pedale di risonanza. Si tiene anche con la <kbd>Barra spaziatrice</kbd>.</td></tr>
+      </table></div>
+    </section>
+
+    <section id="spartiti">
+      <h2><span class="n">3</span>Caricare uno spartito</h2>
+      <p>Premi <span class="ui">📂 Carica MIDI / MusicXML</span> oppure trascina il file sulla pagina. La tastiera si posiziona sul brano e compaiono pentagramma e cascata.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Formato</th><th>Estensioni</th><th>Note</th></tr>
+        <tr><td>MusicXML</td><td><code>.musicxml</code> <code>.xml</code> <code>.mxl</code></td><td>Il più fedele: conserva durate, alterazioni e mani. Si esporta da MuseScore, Sibelius, Finale, Dorico.</td></tr>
+        <tr><td>MIDI</td><td><code>.mid</code> <code>.midi</code></td><td>Molto diffuso. Le durate scritte vengono dedotte dall'esecuzione, quindi il pentagramma può essere approssimato.</td></tr>
+      </table></div>
+      <div class="note">PDF e foto di spartiti non si possono leggere. Se hai solo un PDF, cercalo in MusicXML o MIDI, oppure convertilo con un programma di riconoscimento musicale.</div>
+      <figure><img src="guida-img/spartito.jpg" alt="Pentagramma, cascata di note e tastiera durante la riproduzione" loading="lazy"><figcaption>Pentagramma su due righe, cascata e tastiera. La battuta in corso è evidenziata.</figcaption></figure>
+      <h3>Leggere lo schermo</h3>
+      <ul>
+        <li><span class="dot" style="background:#e0a458"></span><b>Arancione</b> è la mano destra, <span class="dot" style="background:#3fa695"></span><b>verde acqua</b> la sinistra. Vale per le note che cadono e per i tasti.</li>
+        <li>Il pentagramma mostra sempre <b>due righe</b>: quella che stai suonando e la successiva. Sotto ogni rigo ci sono i nomi delle note.</li>
+        <li><b>Fai clic su una battuta</b> del pentagramma per ripartire da lì.</li>
+      </ul>
+      <h3>La barra dello spartito</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Comando</th><th>A cosa serve</th></tr>
+        <tr><td><span class="ui">⏮</span> e <span class="ui">▶ Avvia</span></td><td>Torna all'inizio, avvia o mette in pausa. Anche con <kbd>Invio</kbd> o con un clic sulla cascata.</td></tr>
+        <tr><td><span class="ui">Modalità</span></td><td><i>Ascolta</i> suona il brano da solo. <i>Apprendimento</i> aspetta te.</td></tr>
+        <tr><td><span class="ui">Mani da suonare</span></td><td>Entrambe, solo destra o solo sinistra. Conta in Apprendimento.</td></tr>
+        <tr><td><span class="ui">Velocità</span></td><td>Dal 25% al 150%, senza cambiare l'intonazione.</td></tr>
+        <tr><td><span class="ui">Vista</span></td><td>Pentagramma e cascata, solo pentagramma o solo cascata. Su schermi bassi conviene una sola delle due.</td></tr>
+        <tr><td><span class="ui">Do Re Mi</span></td><td>Mostra o nasconde i nomi delle note sul pentagramma.</td></tr>
+        <tr><td><span class="ui">✦ Spazio</span></td><td>Accende o spegne stelle, scie e scintille della cascata.</td></tr>
+        <tr><td><span class="ui">Posizione</span></td><td>Trascina per spostarti nel brano.</td></tr>
+      </table></div>
+      <p>Nella cartella <code>esempi</code> del progetto trovi alcuni brani di prova.</p>
+    </section>
+
+    <section id="apprendimento">
+      <h2><span class="n">4</span>Modalità Apprendimento</h2>
+      <p>È il cuore dell'app: <b>il brano avanza solo quando suoni la nota giusta</b>. Puoi prenderti tutto il tempo che serve.</p>
+      <ol>
+        <li>Carica un brano, genera un'idea oppure premi Demo.</li>
+        <li>In <span class="ui">Modalità</span> scegli <i>Apprendimento (avanza solo se suoni)</i>.</li>
+        <li>In <span class="ui">Mani da suonare</span> scegli una mano sola: l'app suona l'altra per te.</li>
+        <li>Abbassa la <span class="ui">Velocità</span> al 50% e premi <span class="ui">▶ Avvia</span>.</li>
+        <li>Quando una nota arriva sulla linea luminosa, la cascata si ferma e il tasto da premere si illumina. Suonalo e il brano riparte.</li>
+      </ol>
+      <figure><img src="guida-img/apprendimento.jpg" alt="Pentagramma in modalità Apprendimento con note verdi e nota arancione" loading="lazy"><figcaption>Le note suonate bene diventano verdi. Quella da suonare è arancione con un alone.</figcaption></figure>
+      <h3>Cosa succede mentre suoni</h3>
+      <ul>
+        <li>Un <b>tasto sbagliato lampeggia in rosso</b> e conta come errore. Il brano resta fermo.</li>
+        <li>Negli <b>accordi</b> devi premere tutte le note, anche una dopo l'altra.</li>
+        <li>Le note dell'altra mano appaiono attenuate e non contano come errori.</li>
+        <li>C'è una piccola <b>tolleranza</b>: una nota suonata con un attimo di anticipo viene accettata.</li>
+        <li>Il <b>punteggio</b> mostra note giuste, errori, precisione e avanzamento. Si azzera quando ricominci o ti sposti nel brano.</li>
+      </ul>
+      <div class="note teal"><b>Un metodo che funziona.</b> Studia la mano destra al 50%, poi la sinistra, poi entrambe. Quando superi il 90% di precisione, alza la velocità di un gradino. Per i passaggi difficili, fai clic sulla battuta e ripeti solo quella.</div>
+    </section>
+
+    <section id="compositore">
+      <h2><span class="n">5</span>Compositore di idee</h2>
+      <p>Genera brani originali completi, senza bisogno di internet. Ogni idea ha melodia per la mano destra, accompagnamento per la sinistra e una scheda che ne descrive la struttura.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Scelta</th><th>Opzioni</th></tr>
+        <tr><td><span class="ui">Stile</span></td><td>Serena, Malinconica, Epica, Allegra, Valzer, Ninna nanna oppure Casuale. Ogni stile ha il suo tempo, la sua metrica e il suo accompagnamento.</td></tr>
+        <tr><td><span class="ui">Tonalità</span></td><td>Sette maggiori e sette minori, oppure casuale.</td></tr>
+        <tr><td><span class="ui">Lunghezza</span></td><td>8, 16, 32, 64 o 128 battute. I brani lunghi hanno una forma a sezioni in cui il tema ritorna, per esempio A – B – A – C.</td></tr>
+        <tr><td><span class="ui">Difficoltà</span></td><td>Facile usa ritmi semplici, Media aggiunge crome e figure più mosse.</td></tr>
+      </table></div>
+      <ul>
+        <li><span class="ui">🎲 Genera idea</span> crea un brano nuovo e lo suona subito.</li>
+        <li><span class="ui">↻ Variazione</span> mantiene accordi, tonalità e tempo, ma riscrive la melodia.</li>
+        <li>La <b>scheda dell'idea</b> mostra titolo, tonalità, tempo, gli accordi di ogni sezione con nome e grado, la forma e uno spunto per sviluppare il brano.</li>
+      </ul>
+      <p>Ogni idea si studia in modalità Apprendimento e si esporta in MIDI come qualsiasi altro brano.</p>
+    </section>
+
+    <section id="accordi">
+      <h2><span class="n">6</span>Generatore di accordi</h2>
+      <h3>Un accordo alla volta</h3>
+      <p>Scegli <span class="ui">Tonica</span>, <span class="ui">Tipo di accordo</span> e <span class="ui">Rivolto</span>. I tasti si illuminano in <span class="dot" style="background:#b388ff"></span>viola e accanto compaiono la sigla e i nomi delle note. <span class="ui">▶ Ascolta</span> lo suona, <span class="ui">🎲</span> ne propone uno a caso, <span class="ui">✕</span> spegne i tasti.</p>
+      <figure><img src="guida-img/accordo.jpg" alt="Tastiera con le note di un accordo illuminate in viola" loading="lazy"><figcaption>Un accordo di settima maggiore illuminato sulla tastiera.</figcaption></figure>
+      <p>I diciotto tipi disponibili: maggiore, minore, diminuito, aumentato, sospeso di seconda e di quarta, sesta e minore sesta, settima di dominante, settima maggiore, minore settima, minore con settima maggiore, semidiminuito, settima diminuita, nona aggiunta, nona di dominante, nona maggiore, minore nona.</p>
+      <h3>Giri di accordi</h3>
+      <p>Un giro è una successione di accordi che si ripete. Scegli la tonica in alto, poi:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Scelta</th><th>Opzioni</th></tr>
+        <tr><td><span class="ui">Giro di accordi</span></td><td>Tredici giri: pop, anni '50, classico, emotivo, canone di Pachelbel, jazz ii–V–I, turnaround, blues in dodici battute e cinque giri in minore, tra cui l'andalusa.</td></tr>
+        <tr><td><span class="ui">Accordi</span></td><td>Triadi, con la settima, oppure come previsto dal giro.</td></tr>
+        <tr><td><span class="ui">Accompagnamento</span></td><td>Accordi pieni, basso più accordo, ballata, arpeggio.</td></tr>
+        <tr><td><span class="ui">Ripetizioni</span></td><td>Una, due o quattro volte, con chiusura finale sulla tonica.</td></tr>
+      </table></div>
+      <p><span class="ui">🎼 Carica giro</span> porta il giro su pentagramma e cascata. <span class="ui">🎲 Casuale</span> sceglie tonalità, giro e accompagnamento per te. Gli accordi si collegano con il rivolto più vicino, come farebbe un pianista.</p>
+      <div class="note violet">I giri sono ottimi per esercitare la mano sinistra. Caricane uno, scegli <i>Solo sinistra</i> in Apprendimento e ripetilo in tonalità diverse.</div>
+    </section>
+
+    <section id="ia">
+      <h2><span class="n">7</span>Idee con IA locale</h2>
+      <p>Puoi descrivere a parole il brano che vorresti, per esempio <i>«un valzer allegro da festa di paese»</i>. Un modello di intelligenza artificiale sul tuo computer ne progetta titolo, stile, tonalità, tempo, accordi e motivo melodico. Il compositore dell'app completa il resto. Nessun dato lascia il tuo computer.</p>
+      <h3>Preparazione, una volta sola</h3>
+      <ol>
+        <li>Installa <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> e avvialo.</li>
+        <li>Scarica un modello. Un buon punto di partenza:
+          <pre><code>ollama pull gemma3:12b</code></pre></li>
+        <li>Apri PlayPiano dall'app desktop oppure da <code>localhost</code> con il file <code>Avvia PlayPiano.command</code>.</li>
+      </ol>
+      <h3>Uso</h3>
+      <ol>
+        <li>Scrivi la descrizione nel campo <span class="ui">Idee con IA locale</span>.</li>
+        <li>Scegli il <span class="ui">Modello</span>. Lunghezza e difficoltà si prendono dai menu del compositore.</li>
+        <li>Premi <span class="ui">✨ Genera con IA</span> o <kbd>Invio</kbd>. La prima risposta può richiedere fino a un minuto, perché il modello deve caricarsi.</li>
+      </ol>
+      <p>Dopo la generazione, in alto a destra l'app indica quanti motivi del modello ha potuto usare. Se il numero è spesso basso, prova un modello più grande.</p>
+      <h3>Quale modello scegliere</h3>
+      <ul>
+        <li>Vanno bene i modelli di tipo «instruct» da circa 8 miliardi di parametri in su. Provati con buoni risultati: <code>gemma3:12b</code> e <code>gemma4:26b</code>.</li>
+        <li>I modelli molto piccoli sbagliano spesso le durate. I modelli per codice, immagini o embedding non sono adatti.</li>
+      </ul>
+      <div class="note"><b>Dal sito online.</b> Ollama accetta richieste solo dall'app desktop e da pagine su <code>localhost</code>. Per usare l'IA dal sito, avvialo consentendo l'indirizzo del sito:
+        <pre style="margin:10px 0 0"><code>OLLAMA_ORIGINS=https://melody.djluza.com ollama serve</code></pre></div>
+    </section>
+
+    <section id="registrare">
+      <h2><span class="n">8</span>Registrare ed esportare</h2>
+      <ul>
+        <li><span class="ui">● Rec</span> registra quello che suoni, pedale compreso. Premi di nuovo per fermare, poi <span class="ui">▶ Play</span> per riascoltare. La registrazione resta in memoria finché non ne fai un'altra o chiudi l'app.</li>
+        <li><span class="ui">⬇ MIDI</span> salva come file MIDI il brano caricato o generato, con mano destra e sinistra su tracce separate. Puoi riaprirlo qui o in qualsiasi programma musicale.</li>
+      </ul>
+    </section>
+
+    <section id="desktop">
+      <h2><span class="n">9</span>App desktop</h2>
+      <p>I pacchetti si scaricano dalla pagina delle <a href="https://github.com/luzadev/playpiano/releases" target="_blank" rel="noopener">Release su GitHub</a>.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Sistema</th><th>File</th><th>Al primo avvio</th></tr>
+        <tr><td>macOS con chip Apple</td><td><code>…-arm64.dmg</code></td><td rowspan="2">Clic destro sull'app, poi «Apri».</td></tr>
+        <tr><td>macOS Intel</td><td><code>….dmg</code></td></tr>
+        <tr><td>Windows</td><td><code>Setup</code> oppure <code>Portable</code> <code>.exe</code></td><td>«Ulteriori informazioni», poi «Esegui comunque».</td></tr>
+        <tr><td>Linux</td><td><code>.AppImage</code></td><td>Rendi il file eseguibile con <code>chmod +x</code>.</td></tr>
+      </table></div>
+      <p>Gli avvisi compaiono perché i pacchetti non hanno un certificato a pagamento. Rispetto al browser, l'app desktop si collega a Ollama senza configurazioni, legge i suoni in locale anche senza internet e accetta le tastiere MIDI senza chiedere permessi.</p>
+    </section>
+
+    <section id="scorciatoie">
+      <h2><span class="n">10</span>Scorciatoie da tastiera</h2>
+      <div class="tablewrap"><table>
+        <tr><th>Tasti</th><th>Funzione</th></tr>
+        <tr><td><kbd>Z</kbd> <kbd>X</kbd> <kbd>C</kbd> <kbd>V</kbd> <kbd>B</kbd> <kbd>N</kbd> <kbd>M</kbd></td><td>Tasti bianchi dell'ottava bassa, dal Do al Si.</td></tr>
+        <tr><td><kbd>S</kbd> <kbd>D</kbd> <kbd>G</kbd> <kbd>H</kbd> <kbd>J</kbd></td><td>Tasti neri dell'ottava bassa.</td></tr>
+        <tr><td><kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd> <kbd>T</kbd> <kbd>Y</kbd> <kbd>U</kbd> <kbd>I</kbd> <kbd>O</kbd> <kbd>P</kbd></td><td>Tasti bianchi dall'ottava alta in su.</td></tr>
+        <tr><td><kbd>2</kbd> <kbd>3</kbd> <kbd>5</kbd> <kbd>6</kbd> <kbd>7</kbd> <kbd>9</kbd> <kbd>0</kbd></td><td>Tasti neri dell'ottava alta.</td></tr>
+        <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Ottava giù e su.</td></tr>
+        <tr><td><kbd>Barra spaziatrice</kbd></td><td>Pedale sustain, finché la tieni premuta.</td></tr>
+        <tr><td><kbd>Maiusc</kbd> + nota</td><td>Nota suonata forte.</td></tr>
+        <tr><td><kbd>Invio</kbd></td><td>Avvia o mette in pausa il brano.</td></tr>
+      </table></div>
+      <p>Le lettere seguono la posizione fisica dei tasti, quindi funzionano con qualsiasi layout. In Chrome ed Edge le etichette sul pianoforte si adattano alla tastiera italiana. Mentre scrivi nel campo dell'IA, la tastiera del computer non suona.</p>
+    </section>
+
+    <section id="problemi">
+      <h2><span class="n">11</span>Se qualcosa non va</h2>
+      <div class="tablewrap"><table>
+        <tr><th>Problema</th><th>Cosa fare</th></tr>
+        <tr><td>Non sento nulla</td><td>I browser attivano l'audio solo dopo un clic o un tasto: premi una nota. Controlla il cursore <span class="ui">Volume</span> e il volume del computer.</td></tr>
+        <tr><td>Il pianoforte suona «finto»</td><td>I suoni reali si caricano al primo tasto e richiedono qualche secondo. Aspetta la scritta <span class="ui">Pianoforte a coda pronto</span> e verifica che lo strumento sia <i>Pianoforte a coda</i>.</td></tr>
+        <tr><td>Il menu dei modelli è vuoto</td><td>Ollama non è avviato, oppure hai aperto <code>index.html</code> con un doppio clic. Usa l'app desktop o <code>Avvia PlayPiano.command</code>, poi premi <span class="ui">⚙</span> per aggiornare l'elenco.</td></tr>
+        <tr><td>Ollama non parte</td><td>Se i modelli sono su un disco esterno, controlla che sia collegato.</td></tr>
+        <tr><td>L'animazione va a scatti</td><td>Spegni gli effetti con <span class="ui">✦ Spazio</span>, oppure scegli una sola <span class="ui">Vista</span>.</td></tr>
+        <tr><td>La tastiera MIDI non viene vista</td><td>Collegala prima di aprire l'app e usa Chrome, Edge o l'app desktop. Safari e Firefox hanno un supporto limitato.</td></tr>
+        <tr><td>Il brano si ferma e non vedo il tasto da premere</td><td>La nota è fuori dalla parte di tastiera visibile: succede su schermi stretti. Sposta l'ottava con <kbd>←</kbd> <kbd>→</kbd>.</td></tr>
+        <tr><td>Il pentagramma di un MIDI è strano</td><td>I MIDI suonati a mano libera hanno durate irregolari. Se esiste, usa la versione MusicXML dello stesso brano.</td></tr>
+        <tr><td>Un ritornello non viene ripetuto</td><td>I segni di ritornello dei file MusicXML non sono ancora interpretati: il brano viene letto in ordine.</td></tr>
+      </table></div>
+      <p>Per segnalare un problema o proporre un'idea, apri una segnalazione su <a href="https://github.com/luzadev/playpiano/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer>PlayPiano è sviluppato da <a href="https://github.com/luzadev" target="_blank" rel="noopener">luzadev</a> · Licenza MIT · Suoni del pianoforte: Salamander Grand Piano di Alexander Holm, CC-BY 3.0</footer>
+</div>
+</body>
+</html>
