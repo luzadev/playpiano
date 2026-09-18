@@ -1,7 +1,7 @@
 {
   "name": "playpiano",
   "productName": "PlayPiano",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pianoforte virtuale a 88 tasti con spartiti, modalità apprendimento e compositore",
   "author": {
     "name": "luzadev",
