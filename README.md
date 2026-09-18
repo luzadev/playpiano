@@ -104,7 +104,7 @@ Da un Mac con chip Apple si ottengono anche le versioni portatili:
 L'installer per Windows e l'AppImage per Linux vengono compilati da GitHub Actions. Il flusso si avvia a mano
 dalla pagina Actions, oppure pubblicando un tag di versione, che crea anche una Release con i pacchetti:
 
-    git tag v1.0.1 && git push origin v1.0.1
+    git tag v1.0.2 && git push origin v1.0.2
 
 ### Pubblicazione del sito
 Il sito è composto da soli file statici:
