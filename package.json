@@ -1,0 +1,91 @@
+{
+  "name": "playpiano",
+  "productName": "PlayPiano",
+  "version": "1.0.0",
+  "description": "Pianoforte virtuale a 88 tasti con spartiti, modalità apprendimento e compositore",
+  "author": "PlayPiano",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux",
+    "dist": "electron-builder --mac --win --linux"
+  },
+  "build": {
+    "appId": "it.playpiano.app",
+    "productName": "PlayPiano",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "samples/**",
+      "esempi/**",
+      "desktop/main.js",
+      "desktop/icon.png",
+      "package.json"
+    ],
+    "icon": "desktop/icon.png",
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "identity": "-",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "PlayPiano-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "PlayPiano-Portable-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "AudioVideo",
+      "artifactName": "PlayPiano-${version}-${arch}.${ext}"
+    },
+    "dmg": {
+      "sign": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.4.2",
+    "electron-builder": "^26.15.3"
+  }
+}
