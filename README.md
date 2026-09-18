@@ -5,6 +5,8 @@ Funziona nel browser e come app desktop per macOS, Windows e Linux.
 
 **Provalo online:** https://melody.djluza.com/
 
+Sviluppato da **[luzadev](https://github.com/luzadev)**.
+
 ![PlayPiano con pentagramma, cascata di note e tastiera](docs/screenshot.jpg)
 
 ## Cosa fa
@@ -112,5 +114,6 @@ Il sito è composto da soli file statici:
 
 ## Crediti e licenze
 
+- Sviluppo e progetto: [luzadev](https://github.com/luzadev).
 - Campioni di pianoforte: [Salamander Grand Piano](https://archive.org/details/SalamanderGrandPianoV3) di Alexander Holm, licenza CC-BY 3.0.
 - App desktop realizzata con [Electron](https://www.electronjs.org).

@@ -3,7 +3,10 @@
   "productName": "PlayPiano",
   "version": "1.0.0",
   "description": "Pianoforte virtuale a 88 tasti con spartiti, modalità apprendimento e compositore",
-  "author": "PlayPiano",
+  "author": {
+    "name": "luzadev",
+    "url": "https://github.com/luzadev"
+  },
   "license": "UNLICENSED",
   "private": true,
   "main": "desktop/main.js",
@@ -82,10 +85,16 @@
     },
     "dmg": {
       "sign": false
-    }
+    },
+    "copyright": "Copyright © 2026 luzadev"
   },
   "devDependencies": {
     "electron": "^44.4.2",
     "electron-builder": "^26.15.3"
+  },
+  "homepage": "https://github.com/luzadev/playpiano",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luzadev/playpiano.git"
   }
 }
