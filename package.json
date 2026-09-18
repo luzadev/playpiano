@@ -7,7 +7,7 @@
     "name": "luzadev",
     "url": "https://github.com/luzadev"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "main": "desktop/main.js",
   "scripts": {
@@ -29,7 +29,8 @@
       "esempi/**",
       "desktop/main.js",
       "desktop/icon.png",
-      "package.json"
+      "package.json",
+      "LICENSE"
     ],
     "icon": "desktop/icon.png",
     "mac": {

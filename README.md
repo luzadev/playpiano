@@ -9,6 +9,8 @@ Sviluppato da **[luzadev](https://github.com/luzadev)**.
 
 ![PlayPiano con pentagramma, cascata di note e tastiera](docs/screenshot.jpg)
 
+🎬 **Video di presentazione:** [guarda il Reel](docs/playpiano-reel.mp4) (27 secondi, formato verticale).
+
 ## Cosa fa
 
 - **Pianoforte a coda campionato** su tutti gli 88 tasti, da La0 a Do8, con registrazioni di uno Yamaha C5. Sono disponibili anche piano elettrico, organo, synth e archi.
@@ -82,6 +84,7 @@ Tutta l'app è nel file `index.html`, senza dipendenze né passaggi di compilazi
 | `esempi/` | brani di prova in formato MIDI, MusicXML e MXL |
 | `desktop/` | contenitore Electron e icona |
 | `.github/workflows/build.yml` | compilazione dei pacchetti desktop su GitHub |
+| `video/` | sorgenti Remotion del video di presentazione |
 
 ### App desktop in locale
 Serve Node.js 20 o superiore.
@@ -114,6 +117,10 @@ Il sito è composto da soli file statici:
 
 ## Crediti e licenze
 
+- Il codice di PlayPiano è distribuito con licenza [MIT](LICENSE).
 - Sviluppo e progetto: [luzadev](https://github.com/luzadev).
 - Campioni di pianoforte: [Salamander Grand Piano](https://archive.org/details/SalamanderGrandPianoV3) di Alexander Holm, licenza CC-BY 3.0.
 - App desktop realizzata con [Electron](https://www.electronjs.org).
+- Video di presentazione realizzato con [Remotion](https://www.remotion.dev): i sorgenti sono nella cartella `video/`.
+
+I campioni del pianoforte nella cartella `samples/` non sono coperti dalla licenza MIT: restano sotto la loro licenza CC-BY 3.0.

@@ -1,0 +1,18 @@
+{
+  "name": "playpiano-reel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare-assets": "mkdir -p public/samples && cp ../samples/*.mp3 public/samples/ && cp ../desktop/icon.png public/icon.png",
+    "studio": "npm run prepare-assets && remotion studio src/index.ts",
+    "render": "npm run prepare-assets && remotion render src/index.ts Reel out/playpiano-reel.mp4 --codec h264 --crf 18"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.526",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.526",
+    "typescript": "^7.0.2"
+  }
+}
