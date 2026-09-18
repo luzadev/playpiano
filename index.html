@@ -1346,7 +1346,9 @@
   const AI_ACC = ['arp', 'arpSlow', 'alberti', 'octave', 'waltz', 'waltzSoft'];
   $('aiUrl').value = store.get('pp.ollamaUrl', 'http://localhost:11434');
   const aiThinking = new Set(); // modelli con "pensiero": lo disattiviamo per avere risposte rapide
-  const AI_FILE_HINT = 'La pagina è aperta con doppio clic e Ollama la rifiuta. Apri l’app con il file "Avvia PlayPiano.command".';
+  const AI_REMOTE = location.protocol !== 'file:' && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname); // app aperta da un sito web
+  const AI_FILE_HINT = AI_REMOTE ? 'Ollama sul tuo computer rifiuta le richieste di questo sito. Riavvialo consentendo il sito: OLLAMA_ORIGINS=' + location.origin
+    : 'La pagina è aperta con doppio clic e Ollama la rifiuta. Apri l’app con il file "Avvia PlayPiano.command".';
   const aiBase = () => ($('aiUrl').value.trim() || 'http://localhost:11434').replace(/\/+$/, '');
 
   let aiBlocked = false;
@@ -1365,7 +1367,7 @@
       if (!quiet) $('status').textContent = names.length ? 'Ollama: ' + names.length + ' modelli trovati' : 'Ollama attivo ma senza modelli: esegui "ollama pull" di un modello';
       return names.length > 0;
     } catch (err) {
-      aiBlocked = location.protocol === 'file:';
+      aiBlocked = location.protocol === 'file:' || AI_REMOTE;
       if (!quiet) $('status').textContent = '⚠ ' + (aiBlocked ? AI_FILE_HINT : 'Ollama non raggiungibile su ' + aiBase());
       return false;
     }
@@ -1416,7 +1418,7 @@
       const used = spec.sections.filter(x => x.motif).length;
       $('status').textContent = 'Idea di ' + model + (used ? ' · motivi del modello: ' + used + '/' + nSec : ' · melodia completata dal compositore');
     } catch (err) {
-      const msg = err.name === 'AbortError' ? 'Tempo scaduto: il modello non ha risposto.' : /Failed to fetch|NetworkError|Load failed/i.test(err.message) ? (location.protocol === 'file:' ? AI_FILE_HINT : 'Ollama non raggiungibile su ' + aiBase() + '. Avvialo e riprova.') : err.message;
+      const msg = err.name === 'AbortError' ? 'Tempo scaduto: il modello non ha risposto.' : /Failed to fetch|NetworkError|Load failed/i.test(err.message) ? (location.protocol === 'file:' || AI_REMOTE ? AI_FILE_HINT : 'Ollama non raggiungibile su ' + aiBase() + '. Avvialo e riprova.') : err.message;
       $('status').textContent = '⚠ ' + msg; $('idea').innerHTML = '⚠ ' + esc(msg); $('idea').classList.add('show');
     } finally { btn.classList.remove('busy'); btn.textContent = '✨ Genera con IA'; }
   }
